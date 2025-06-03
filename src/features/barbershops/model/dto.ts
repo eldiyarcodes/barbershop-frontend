@@ -1,22 +1,4 @@
-export type Barbershop = {
-	id: number
-	name: string
-	address: string
-	phone: string
-	description: string
-	workDays: BarbershopWorkDays[]
-	timeFrom: string
-	timeTo: string
-}
-
-export type BarbershopWorkDays =
-	| 'Mon'
-	| 'Tue'
-	| 'Wed'
-	| 'Thu'
-	| 'Fri'
-	| 'Sat'
-	| 'Sun'
+import type { Barbershop } from '@/shared/model/types'
 
 export type BarbershopListResponse = {
 	status: string

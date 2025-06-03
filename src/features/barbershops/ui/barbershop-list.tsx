@@ -29,7 +29,7 @@ export function BarbershopList() {
 			</div>
 			<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10'>
 				{barbershopsQuery.data?.map((item, idx) => (
-					<Card key={idx} className='p-3'>
+					<Card key={idx} className='py-5'>
 						<CardHeader>
 							<CardTitle>{item.name}</CardTitle>
 						</CardHeader>

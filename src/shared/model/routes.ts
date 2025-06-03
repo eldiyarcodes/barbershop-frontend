@@ -5,7 +5,7 @@ export const ROUTES = {
 	LOGIN: '/login',
 	ADMIN: '/administration',
 	BARBERSHOPS: '/barbershops',
-	BARBERSHOP: '/barbershops/:shopId',
+	BARBERSHOP: '/barbershop/:shopId',
 	APPOINTMENT: '/appointment/:barbershopId',
 	APPOINTMENT_CONFIRMATION: '/appointment/confirmation/:appointmentId',
 	APPOINTMENT_CANCEL: '/appointment/cancel',

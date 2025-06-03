@@ -12,7 +12,10 @@ export function AppHeader() {
 	return (
 		<header className='bg-background border-b border-border/40 shadow-sm py-3 px-4 mb-6'>
 			<div className='max-w-7xl mx-auto flex items-center justify-between'>
-				<div className='text-xl font-semibold flex items-center gap-1'>
+				<div
+					className='text-xl font-semibold flex items-center gap-1 cursor-pointer'
+					onClick={() => navigate(ROUTES.HOME)}
+				>
 					<ScissorsIcon />
 					Barbershop
 				</div>
