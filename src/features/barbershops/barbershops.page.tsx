@@ -1,12 +1,10 @@
-import { BarbershopList } from './barbershop-list'
-import { HeroBock } from './hero-block'
-import { SearchFilterPanel } from './search-filter-panel'
+import { BarbershopList } from './ui/barbershop-list'
+import { HeroBock } from './ui/hero-block'
 
 function BarbershopsPage() {
 	return (
-		<div className='w-full flex flex-col px-4'>
+		<div className='w-full flex flex-col gap-8 px-4'>
 			<HeroBock />
-			<SearchFilterPanel />
 			<BarbershopList />
 		</div>
 	)

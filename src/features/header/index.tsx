@@ -17,25 +17,17 @@ export function AppHeader() {
 					Barbershop
 				</div>
 
-				<div className='flex items-center gap-4'>
-					<span className='text-sm text-muted-foreground'>
-						{session?.email}
-					</span>
-					<Button
-						variant={'outline'}
-						size={'sm'}
-						onClick={() => {
-							if (session) logout()
-							else navigate(ROUTES.LOGIN)
-						}}
-						className={cn(
-							session && 'hover:bg-destructive/10',
-							'cursor-pointer'
-						)}
-					>
-						{session ? 'Выйти' : 'Войти'}
-					</Button>
-				</div>
+				<Button
+					variant={'outline'}
+					size={'sm'}
+					onClick={() => {
+						if (session) logout()
+						else navigate(ROUTES.LOGIN)
+					}}
+					className={cn(session && 'hover:bg-destructive/10', 'cursor-pointer')}
+				>
+					{session ? 'Выйти' : 'Войти'}
+				</Button>
 			</div>
 		</header>
 	)
