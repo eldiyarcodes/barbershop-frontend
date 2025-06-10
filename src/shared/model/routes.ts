@@ -11,9 +11,10 @@ export const ROUTES = {
 	ADMIN: '/admin',
 	ADMIN_BARBERSHOPS: '/admin/barbershops',
 	ADMIN_BARBERSHOP: '/admin/barbershop/:barbershopId',
+	ADMIN_CREATE_BARBERSHOP: '/admin/barbershop/create',
 	ADMIN_MASTERS: '/admin/masters',
 	ADMIN_MASTER: '/admin/master/:masterId',
-	ADMIN_USER: '/admin/user/:userId',
+	ADMIN_CREATE_USER: '/admin/user/create',
 	ADMIN_APPOINTMENTS: '/admin/appointments',
 	ADMIN_APPOINTMENT: '/admin/appointment/:appointmentId',
 } as const
@@ -24,9 +25,6 @@ export type PathParams = {
 	}
 	[ROUTES.APPOINTMENT]: {
 		barbershopId: string
-	}
-	[ROUTES.ADMIN_USER]: {
-		userId: string
 	}
 	[ROUTES.ADMIN_MASTER]: {
 		masterId: string

@@ -8,7 +8,7 @@ export type UserFilters = {
 
 export function useUsersFilter() {
 	const [search, setSearch] = useState('')
-	const [sort, setSort] = useState<UsersSortOptions>('lastOpenedAt')
+	const [sort, setSort] = useState<UsersSortOptions>('email')
 
 	return {
 		search,

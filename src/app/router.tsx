@@ -22,17 +22,29 @@ export const router = createBrowserRouter([
 						lazy: () => import('@/features/admin/users/admin.page'),
 					},
 					{
-						path: ROUTES.ADMIN_USER,
-						lazy: () => import('@/features/admin/users/admin-user.page'),
-					},
-					{
-						path: ROUTES.ADMIN_MASTERS,
-						lazy: () => import('@/features/admin/masters/admin-masters.page'),
+						path: ROUTES.ADMIN_CREATE_USER,
+						lazy: () => import('@/features/admin/users/admin-create-user.page'),
 					},
 					{
 						path: ROUTES.ADMIN_BARBERSHOPS,
 						lazy: () =>
 							import('@/features/admin/barbershops/admin-barbershops.page'),
+					},
+					{
+						path: ROUTES.ADMIN_CREATE_BARBERSHOP,
+						lazy: () =>
+							import(
+								'@/features/admin/barbershops/admin-create-barbershop.page'
+							),
+					},
+					{
+						path: ROUTES.ADMIN_BARBERSHOP,
+						lazy: () =>
+							import('@/features/admin/barbershops/admin-edit-barbershop.page'),
+					},
+					{
+						path: ROUTES.ADMIN_MASTERS,
+						lazy: () => import('@/features/admin/masters/admin-masters.page'),
 					},
 					{
 						path: ROUTES.ADMIN_APPOINTMENTS,

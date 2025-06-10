@@ -8,13 +8,13 @@ type UsersListDto = {
 	data: User[]
 }
 
-type UserDto = {
+type CreateUserDto = {
 	status: string
 	data: User
 }
 
 export const usersApi = {
-	baseKey: 'admin_users',
+	baseKey: 'admin-users',
 
 	getAllUsers: async (
 		{ search, sort }: { search: string; sort: UsersSortOptions },
@@ -31,34 +31,20 @@ export const usersApi = {
 		return data
 	},
 
-	getUserById: async (
-		{ id }: { id: number },
-		{ signal }: { signal: AbortSignal }
-	) => {
-		const { data } = await $authApi.get<UserDto>(`users/${id}`, {
-			signal,
-		})
+	createUser: async (user: { email: string; password: string }) => {
+		const { data } = await $authApi.post<CreateUserDto>('users', user)
 
-		return data
+		return data.data
 	},
 
-	createUser: async () => {},
-
 	deleteUser: async (id: number) => {
-		await $authApi.delete('')
+		await $authApi.delete(`users/${id}`)
 	},
 
 	getUsersQueryOptions: (search: string, sort: UsersSortOptions) => {
 		return queryOptions({
 			queryKey: [usersApi.baseKey, 'users', search, sort],
 			queryFn: meta => usersApi.getAllUsers({ search, sort }, meta),
-		})
-	},
-
-	getUserQueryOptions: (id: number) => {
-		return queryOptions({
-			queryKey: [usersApi.baseKey, 'user', id],
-			queryFn: meta => usersApi.getUserById({ id }, meta),
 		})
 	},
 }

@@ -6,11 +6,7 @@ import {
 	SelectValue,
 } from '@/shared/ui/kit/select'
 
-export type UsersSortOptions =
-	| 'createdAt'
-	| 'updatedAt'
-	| 'name'
-	| 'lastOpenedAt'
+export type UsersSortOptions = 'id' | 'email'
 
 export function UsersSort({
 	value,
@@ -28,10 +24,8 @@ export function UsersSort({
 				<SelectValue placeholder='Сортировка' />
 			</SelectTrigger>
 			<SelectContent>
-				<SelectItem value='lastOpenedAt'>По дате открытия</SelectItem>
-				<SelectItem value='createdAt'>По дате создания</SelectItem>
-				<SelectItem value='updatedAt'>По дате обновления</SelectItem>
-				<SelectItem value='name'>По имени</SelectItem>
+				<SelectItem value='email'>По email</SelectItem>
+				<SelectItem value='id'>По ID</SelectItem>
 			</SelectContent>
 		</Select>
 	)
