@@ -7,7 +7,7 @@ export const authSchemas = {
 			.email('Неверный email'),
 		password: z
 			.string({ required_error: 'Пароль обязателен' })
-			.min(6, 'Пароль должен быть не менее 6 символов'),
+			.min(5, 'Пароль должен быть не менее 5 символов'),
 	}),
 
 	register: z
@@ -17,7 +17,7 @@ export const authSchemas = {
 				.email('Неверный email'),
 			password: z
 				.string({ required_error: 'Пароль обязателен' })
-				.min(6, 'Пароль должен быть не менее 6 символов'),
+				.min(5, 'Пароль должен быть не менее 5 символов'),
 			confirmPassword: z.string().optional(),
 		})
 		.refine(data => data.password === data.confirmPassword, {

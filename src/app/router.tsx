@@ -1,8 +1,9 @@
-import { createBrowserRouter, redirect } from 'react-router-dom'
+import { createBrowserRouter } from 'react-router-dom'
 import { ROUTES } from '../shared/model/routes'
 import { App } from './app'
 import { AppProviders } from './app-providers'
 import { protectedLoader, ProtectedRoute } from './protected-route'
+import { Redirect } from './redirect'
 
 export const router = createBrowserRouter([
 	{
@@ -18,7 +19,25 @@ export const router = createBrowserRouter([
 				children: [
 					{
 						path: ROUTES.ADMIN,
-						lazy: () => import('@/features/admin/admin.page'),
+						lazy: () => import('@/features/admin/users/admin.page'),
+					},
+					{
+						path: ROUTES.ADMIN_USER,
+						lazy: () => import('@/features/admin/users/admin-user.page'),
+					},
+					{
+						path: ROUTES.ADMIN_MASTERS,
+						lazy: () => import('@/features/admin/masters/admin-masters.page'),
+					},
+					{
+						path: ROUTES.ADMIN_BARBERSHOPS,
+						lazy: () =>
+							import('@/features/admin/barbershops/admin-barbershops.page'),
+					},
+					{
+						path: ROUTES.ADMIN_APPOINTMENTS,
+						lazy: () =>
+							import('@/features/admin/appointments/admin-appointments.page'),
 					},
 				],
 			},
@@ -43,18 +62,8 @@ export const router = createBrowserRouter([
 				lazy: () => import('@/features/appointment/appointment.page'),
 			},
 			{
-				path: ROUTES.APPOINTMENT_CONFIRMATION,
-				lazy: () =>
-					import('@/features/appointment-confirm/appointment-confirm.page'),
-			},
-			{
-				path: ROUTES.APPOINTMENT_CANCEL,
-				lazy: () =>
-					import('@/features/appointment-cancel/appointment-cancel.page'),
-			},
-			{
 				path: ROUTES.HOME,
-				loader: () => redirect(ROUTES.BARBERSHOPS),
+				element: <Redirect />,
 			},
 		],
 	},

@@ -25,4 +25,13 @@ export type Master = {
 	photoUrl: string
 }
 
+export type User = {
+	id: number
+	email: string
+	password: string
+	role: UserRole
+}
+
+export type UserRole = 'ADMIN' | 'USER'
+
 export type WorkDays = 'Mon' | 'Tue' | 'Wed' | 'Thu' | 'Fri' | 'Sat' | 'Sun'

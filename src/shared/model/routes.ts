@@ -4,12 +4,18 @@ export const ROUTES = {
 	HOME: '/',
 	LOGIN: '/login',
 	REGISTER: '/register',
-	ADMIN: '/administration',
 	BARBERSHOPS: '/barbershops',
 	BARBERSHOP: '/barbershop/:shopId',
 	APPOINTMENT: '/appointment/:barbershopId',
-	APPOINTMENT_CONFIRMATION: '/appointment/confirmation/:appointmentId',
-	APPOINTMENT_CANCEL: '/appointment/cancel',
+
+	ADMIN: '/admin',
+	ADMIN_BARBERSHOPS: '/admin/barbershops',
+	ADMIN_BARBERSHOP: '/admin/barbershop/:barbershopId',
+	ADMIN_MASTERS: '/admin/masters',
+	ADMIN_MASTER: '/admin/master/:masterId',
+	ADMIN_USER: '/admin/user/:userId',
+	ADMIN_APPOINTMENTS: '/admin/appointments',
+	ADMIN_APPOINTMENT: '/admin/appointment/:appointmentId',
 } as const
 
 export type PathParams = {
@@ -19,7 +25,16 @@ export type PathParams = {
 	[ROUTES.APPOINTMENT]: {
 		barbershopId: string
 	}
-	[ROUTES.APPOINTMENT_CONFIRMATION]: {
+	[ROUTES.ADMIN_USER]: {
+		userId: string
+	}
+	[ROUTES.ADMIN_MASTER]: {
+		masterId: string
+	}
+	[ROUTES.ADMIN_BARBERSHOP]: {
+		barbershopId: string
+	}
+	[ROUTES.ADMIN_APPOINTMENT]: {
 		appointmentId: string
 	}
 }

@@ -1,12 +1,14 @@
 import { jwtDecode } from 'jwt-decode'
 import { create } from 'zustand'
 import { $mainApi } from '../api/api-instance'
+import type { UserRole } from './types'
 
 type Session = {
 	userId: number
 	email: string
 	exp: number
 	iat: number
+	role: UserRole
 }
 
 type SessionStore = {
