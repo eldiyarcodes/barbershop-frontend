@@ -19,7 +19,6 @@ export const ROUTES = {
 	ADMIN_CREATE_MASTER: '/admin/master/create',
 
 	ADMIN_APPOINTMENTS: '/admin/appointments',
-	ADMIN_APPOINTMENT: '/admin/appointment/:appointmentId',
 } as const
 
 export type PathParams = {
@@ -34,9 +33,6 @@ export type PathParams = {
 	}
 	[ROUTES.ADMIN_BARBERSHOP]: {
 		barbershopId: string
-	}
-	[ROUTES.ADMIN_APPOINTMENT]: {
-		appointmentId: string
 	}
 }
 

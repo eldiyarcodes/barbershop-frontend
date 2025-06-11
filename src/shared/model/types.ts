@@ -9,6 +9,19 @@ export type Barbershop = {
 	timeTo: string
 }
 
+export type Appointment = {
+	id: number
+	masterId: number
+	barbershopId: number
+	userId: number
+	date: string
+	startTime: string
+	endTime: string
+	status: string
+	name: string
+	phone: string
+}
+
 export type Schedules = {
 	id: number
 	masterId: number

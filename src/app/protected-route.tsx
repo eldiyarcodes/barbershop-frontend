@@ -5,7 +5,11 @@ import { Navigate, Outlet, redirect } from 'react-router-dom'
 export function ProtectedRoute() {
 	const session = useSession(s => s.session)
 
-	return !session ? <Navigate to={ROUTES.LOGIN} replace /> : <Outlet />
+	if (session && session.role === 'ADMIN') {
+		return <Outlet />
+	}
+
+	return <Navigate to={ROUTES.LOGIN} replace />
 }
 
 export async function protectedLoader() {
