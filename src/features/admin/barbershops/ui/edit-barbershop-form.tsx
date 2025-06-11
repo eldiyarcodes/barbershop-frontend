@@ -10,38 +10,16 @@ import {
 } from '@/shared/ui/kit/form'
 import { Input } from '@/shared/ui/kit/input'
 import { Textarea } from '@/shared/ui/kit/textarea'
-import { zodResolver } from '@hookform/resolvers/zod'
-import { useForm } from 'react-hook-form'
-import { barbershopSchema } from '../lib/schemas'
-import { useCreateBarbershop } from '../model/use-create-barbershop'
-import { useParams } from 'react-router-dom'
+import { useEditBarbershop } from '../model/use-edit-barbershop'
 
 export function EditBarbershopForm() {
-	const { barbershopId } = useParams()
-	
-
-	const form = useForm({
-		resolver: zodResolver(barbershopSchema),
-		defaultValues: {
-			name: '',
-			address: '',
-			phone: '',
-			description: '',
-			workDays: [],
-			timeFrom: '',
-			timeTo: '',
-		},
-	})
-
-	const createBarbershop = useCreateBarbershop()
+	const { form, handleChange, isPending } = useEditBarbershop()
 
 	return (
 		<Form {...form}>
 			<form
-				className='flex flex-col gap-4 w-[500px]'
-				onSubmit={form.handleSubmit(data => {
-					createBarbershop.handleCreate(data)
-				})}
+				className='flex flex-col gap-4 w-[500px] mt-6'
+				onSubmit={form.handleSubmit(handleChange)}
 			>
 				<FormField
 					control={form.control}
@@ -156,8 +134,8 @@ export function EditBarbershopForm() {
 						</FormItem>
 					)}
 				/>
-				<Button variant={'default'} type='submit'>
-					Создать
+				<Button variant={'default'} type='submit' disabled={isPending}>
+					Сохранить
 				</Button>
 			</form>
 		</Form>

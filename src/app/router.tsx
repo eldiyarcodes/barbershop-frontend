@@ -47,6 +47,15 @@ export const router = createBrowserRouter([
 						lazy: () => import('@/features/admin/masters/admin-masters.page'),
 					},
 					{
+						path: ROUTES.ADMIN_MASTER,
+						lazy: () => import('@/features/admin/masters/admin-edit-master'),
+					},
+					{
+						path: ROUTES.ADMIN_CREATE_MASTER,
+						lazy: () =>
+							import('@/features/admin/masters/admin-create-master.page'),
+					},
+					{
 						path: ROUTES.ADMIN_APPOINTMENTS,
 						lazy: () =>
 							import('@/features/admin/appointments/admin-appointments.page'),

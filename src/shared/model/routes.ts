@@ -9,12 +9,15 @@ export const ROUTES = {
 	APPOINTMENT: '/appointment/:barbershopId',
 
 	ADMIN: '/admin',
+	ADMIN_CREATE_USER: '/admin/user/create',
 	ADMIN_BARBERSHOPS: '/admin/barbershops',
 	ADMIN_BARBERSHOP: '/admin/barbershop/:barbershopId',
 	ADMIN_CREATE_BARBERSHOP: '/admin/barbershop/create',
+
 	ADMIN_MASTERS: '/admin/masters',
 	ADMIN_MASTER: '/admin/master/:masterId',
-	ADMIN_CREATE_USER: '/admin/user/create',
+	ADMIN_CREATE_MASTER: '/admin/master/create',
+
 	ADMIN_APPOINTMENTS: '/admin/appointments',
 	ADMIN_APPOINTMENT: '/admin/appointment/:appointmentId',
 } as const

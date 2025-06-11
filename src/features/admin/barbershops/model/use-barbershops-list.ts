@@ -15,5 +15,6 @@ export function useBarbershopsList({ search }: { search: string }) {
 		data: barbershopsQuery.data?.data,
 		isLoading: barbershopsQuery.isLoading,
 		errorMessage,
+		refetch: barbershopsQuery.refetch,
 	}
 }

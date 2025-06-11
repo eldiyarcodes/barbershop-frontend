@@ -36,10 +36,7 @@ export function CreateUserForm() {
 
 	return (
 		<Form {...form}>
-			<form
-				className='w-[500px] flex flex-col gap-4 mt-6'
-				onSubmit={onSubmit}
-			>
+			<form className='w-[500px] flex flex-col gap-4 mt-6' onSubmit={onSubmit}>
 				<FormField
 					control={form.control}
 					name='email'
@@ -100,7 +97,11 @@ export function CreateUserForm() {
 						</FormItem>
 					)}
 				/>
-				<Button type='submit' className='cursor-pointer'>
+				<Button
+					type='submit'
+					className='cursor-pointer'
+					disabled={createUser.isPending}
+				>
 					Создать
 				</Button>
 			</form>

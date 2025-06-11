@@ -35,9 +35,7 @@ export function CreateBarbershopForm() {
 		<Form {...form}>
 			<form
 				className='flex flex-col gap-4 w-[500px]'
-				onSubmit={form.handleSubmit(data => {
-					createBarbershop.handleCreate(data)
-				})}
+				onSubmit={form.handleSubmit(createBarbershop.handleCreate)}
 			>
 				<FormField
 					control={form.control}

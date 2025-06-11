@@ -54,15 +54,32 @@ export const barbershopsApi = {
 		return data
 	},
 
-	getBarbershopById: async (id: number) => {
-		const {data} = await $authApi.get<BarbershopOkResponse>(`barbershop/${id}`)
+	getBarbershopById: async (
+		{ id }: { id: number },
+		{ signal }: { signal: AbortSignal }
+	) => {
+		const { data } = await $authApi.get<BarbershopOkResponse>(
+			`barbershop/${id}`,
+			{ signal }
+		)
 		return data
+	},
+
+	deleteBarbershop: async (id: number) => {
+		await $authApi.delete(`barbershop/${id}`)
 	},
 
 	getBarbershopsQueryOptions: (search: string) => {
 		return queryOptions({
-			queryKey: [barbershopsApi.baseKey, search],
+			queryKey: [barbershopsApi.baseKey, 'barbershop-list', search],
 			queryFn: meta => barbershopsApi.getAllBarbershops({ search }, meta),
+		})
+	},
+
+	getBarbershopQueryOptions: (id: number) => {
+		return queryOptions({
+			queryKey: [barbershopsApi.baseKey, 'single-barbershop', id],
+			queryFn: meta => barbershopsApi.getBarbershopById({ id }, meta),
 		})
 	},
 }
