@@ -9,7 +9,6 @@ import { masterSchema } from '../lib/schemas'
 import type { CreateMasterDto } from './dto'
 import { mastersApi } from './masters.api'
 import { useMaster } from './use-master'
-import { useBarbershopsList } from '../../barbershops'
 
 export function useEditMaster() {
 	const navigate = useNavigate()
